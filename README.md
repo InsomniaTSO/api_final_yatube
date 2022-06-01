@@ -11,11 +11,11 @@ API соцсети Yatube для публикации постов.
 Клонировать репозиторий и перейти в него в командной строке:
 
 ```
-git clone https://github.com/yandex-praktikum/kittygram.git
+git clone git@github.com:InsomniaTSO/api_final_yatube.git
 ```
 
 ```
-cd kittygram
+cd api_final_yatube
 ```
 
 Cоздать и активировать виртуальное окружение:
@@ -48,4 +48,64 @@ python3 manage.py migrate
 
 ```
 python3 manage.py runserver
+```
+
+## __Примеры запросов__:
+
+Получение JWT-токена:
+
+```
+POST http://127.0.0.1:8000/api/v1/jwt/create/
+```
+
+Получить список всех публикаций:
+
+```
+GET http://127.0.0.1:8000/api/v1/posts/
+```
+
+Добавление новой публикации:
+
+```
+POST http://127.0.0.1:8000/api/v1/posts/
+{
+  "text": "string",
+  "image": "string",
+  "group": 0
+}
+```
+
+Получение всех комментариев к публикации:
+
+```
+GET http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
+```
+
+Добавление нового комментария к публикации:
+
+```
+POST http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
+{
+"text": "string"
+}
+```
+
+Получение списка доступных сообществ:
+
+```
+GET http://127.0.0.1:8000/api/v1/groups/
+```
+
+Возвращает все подписки пользователя, сделавшего запрос:
+
+```
+GET http://127.0.0.1:8000/api/v1/follow/
+```
+
+Добавление нового комментария к публикации:
+```
+http://127.0.0.1:8000/api/v1/follow/
+{
+"following": "string"
+}
 ```
