@@ -106,4 +106,8 @@ http://127.0.0.1:8000/api/v1/follow/
 {
 "following": "string"
 }
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> af272eed4dd6030a60c43eabe22756f4d3dfe331
