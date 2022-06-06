@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
+from rest_framework.viewsets import GenericViewSet
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import AllowAny
 
@@ -47,7 +48,9 @@ class CommentViewSet(CustomViewSet):
         return new_queryset
 
 
-class FollowViewSet(viewsets.ModelViewSet):
+class FollowViewSet(mixins.CreateModelMixin,
+                    mixins.ListModelMixin,
+                    GenericViewSet):
     """Представление модели подписок"""
     serializer_class = FollowSerializer
     filter_backends = (SearchFilter,)
